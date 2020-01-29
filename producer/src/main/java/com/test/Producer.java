@@ -5,7 +5,6 @@ import io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig;
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import java.util.Properties;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -15,7 +14,7 @@ import org.apache.kafka.common.serialization.StringSerializer;
 @Slf4j
 public class Producer {
 
-  private static final String TOPIC = "payment";
+  private static final String TOPIC = "payment-object";
 
   public static void main(final String[] args) {
 
@@ -29,15 +28,14 @@ public class Producer {
     props.put(AbstractKafkaAvroSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, "http://localhost:8081");
     props.put(AbstractKafkaAvroSerDeConfig.AUTO_REGISTER_SCHEMAS, true);
 
-    try (KafkaProducer<String, GenericRecord> producer = new KafkaProducer<>(props)) {
+    try (KafkaProducer<String, Payment> producer = new KafkaProducer<>(props)) {
       for (long i = 0; i < 10; i++) {
         final String orderId = "id" + i;
         final Payment payment = new Payment();
         payment.setId(orderId);
         payment.setAmount(1000.00d * Math.random());
-//        payment.setTest1(100500);
-//        payment.setType("payment type");
-        final ProducerRecord<String, GenericRecord> record = new ProducerRecord<>(TOPIC, orderId, payment);
+//        payment.setNewField("string 100500");
+        final ProducerRecord<String, Payment> record = new ProducerRecord<>(TOPIC, orderId, payment);
         producer.send(record);
       }
       producer.flush();

@@ -11,4 +11,11 @@
 
   <artifactId>consumer</artifactId>
 
+  <dependencies>
+    <dependency>
+      <groupId>com.epam.edp</groupId>
+      <artifactId>avro-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
 </project>
