@@ -1,14 +1,23 @@
+topic:
+  name: users
+  partitions-num: 6
+  replication-factor: 3
 server:
-  port: 0
+  port: 9080
 spring:
   kafka:
+    bootstrap-servers:
+      - localhost:9092
     consumer:
-      bootstrap-servers: localhost:9092
-      group-id: etl_group_id
+      group-id: group_id
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
     producer:
-      bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+    template:
+      default-topic:
+logging:
+  level:
+    root: info
