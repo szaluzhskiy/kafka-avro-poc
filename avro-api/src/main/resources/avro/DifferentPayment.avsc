@@ -1,0 +1,9 @@
+{"namespace": "com.stza.hello.dto",
+ "type": "record",
+ "name": "Payment",
+ "fields": [
+     {"name": "cardNumber", "type": "string"},
+     {"name": "total", "type": "double", "default": 0},
+     {"name": "created", "type": "long", "logicalType": "timestamp-millis"}
+ ]
+}
