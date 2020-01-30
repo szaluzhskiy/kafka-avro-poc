@@ -1,4 +1,4 @@
-{"namespace": "com.stza.hello.dto",
+{"namespace": "com.test.dto",
  "type": "record",
  "name": "Payment",
  "fields": [

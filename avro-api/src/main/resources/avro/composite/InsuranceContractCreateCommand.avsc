@@ -1,0 +1,12 @@
+{
+  "namespace": "com.test.dto.insurance.contract.model",
+  "type": "record",
+  "name": "InsuranceContractCreateCommand",
+
+ "fields": [
+  { "name": "contract_type", "type": ["null", "InsuranceContractType"], "default": null },
+  { "name": "operationType", "type": "InsuranceContractOperation" },
+  { "name": "insuranceContract", "type": "InsuranceContract" },
+  { "name": "insuranceContractComposite", "type": "InsuranceContractComposite" }
+ ]
+}

@@ -1,6 +1,6 @@
-{"namespace": "com.stza.hello.dto",
+{"namespace": "com.test.dto",
  "type": "record",
- "name": "Payment",
+ "name": "Card",
  "fields": [
      {"name": "cardNumber", "type": "string"},
      {"name": "total", "type": "double", "default": 0},

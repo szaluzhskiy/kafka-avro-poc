@@ -1,0 +1,6 @@
+{
+  "namespace": "com.test.dto.insurance.contract.model",
+  "type": "enum",
+  "name": "InsuranceContractOperation",
+  "symbols": ["SIGNED", "DRAFT", "CORRECTION"]
+}

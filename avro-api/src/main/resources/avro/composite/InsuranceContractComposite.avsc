@@ -1,0 +1,20 @@
+{
+  "namespace": "com.test.dto.insurance.contract.model",
+  "type": "record",
+  "name": "InsuranceContractComposite",
+
+ "fields": [
+   { "name": "actualContracts", "type": {
+        "type": "array",
+        "items": "InsuranceContract"
+      },
+      "default": []
+   },
+   { "name": "previousContractVersions", "type": [{
+        "type": "array",
+        "items": "InsuranceContract"
+      }, "null"],
+      "default": []
+   }
+ ]
+}

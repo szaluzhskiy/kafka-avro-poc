@@ -1,0 +1,9 @@
+{"namespace": "com.test.dto",
+ "type": "record",
+ "name": "Card",
+ "fields": [
+     {"name": "number", "type": "string"},
+     {"name": "balance", "type": "long", "default": 0},
+     {"name": "expirationDate", "type": {"type": "int", "logicalType": "date"} }
+ ]
+}

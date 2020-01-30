@@ -3,6 +3,7 @@
  "name": "Payment",
  "fields": [
      {"name": "id", "type": "string"},
-     {"name": "amount", "type": "double"}
+     {"name": "amount", "type": "string"},
+     {"name": "differentField", "type": "string", "default": "" }
  ]
 }

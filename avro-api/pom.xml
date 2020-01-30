@@ -11,6 +11,14 @@
 
   <artifactId>avro-api</artifactId>
 
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.avro</groupId>
+      <artifactId>avro-compiler</artifactId>
+      <version>${avro.version}</version>
+    </dependency>
+  </dependencies>
+
   <build>
     <plugins>
       <plugin>
@@ -26,9 +34,23 @@
             <configuration>
               <sourceDirectory>${project.basedir}/src/main/resources/avro</sourceDirectory>
               <includes>
+                <include>composite/*.avsc</include>
                 <include>Payment.avsc</include>
               </includes>
+              <imports>
+                <import>${project.basedir}/src/main/resources/avro/composite/InsuranceContractType.avsc</import>
+                <import>${project.basedir}/src/main/resources/avro/composite/InsuranceContractOperation.avsc</import>
+              </imports>
               <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
+              <stringType>String</stringType>
+              <fieldVisibility>private</fieldVisibility>
+
+              <!-- UUID conversion doesn't work with stringType=String until new plugin version > 1.9.1 -->
+              <customConversions>
+                <conversion>
+                  org.apache.avro.Conversions$UUIDConversion
+                </conversion>
+              </customConversions>
             </configuration>
           </execution>
         </executions>

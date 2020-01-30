@@ -2,7 +2,7 @@ package com.test;
 
 import static java.lang.String.format;
 
-import com.stza.hello.dto.Payment;
+import com.test.dto.Payment;
 import io.confluent.kafka.serializers.KafkaAvroDeserializerConfig;
 import java.time.Duration;
 import java.util.Collections;

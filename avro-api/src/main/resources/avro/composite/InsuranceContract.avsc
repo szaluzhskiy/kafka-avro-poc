@@ -1,0 +1,18 @@
+{
+  "namespace": "com.test.dto.insurance.contract.model",
+  "type": "record",
+  "name": "InsuranceContract",
+
+ "fields": [
+  { "name": "kind", "type": ["null", "string"], "default": null },
+  { "name": "modelVersionId", "type": "long" },
+  { "name": "classifiedIndicator", "type": "boolean", "default": false },
+  { "name": "closingDate", "type": { "type": "int", "logicalType": "date" } },
+  { "name": "startDate", "type": { "type": "long", "logicalType": "timestamp-millis" }},
+  { "name": "documentId", "type":{ "type":"string", "logicalType":"uuid" } },
+  { "name": "additionalProperties", "type": {
+      "type": "map", "values": "string", "default": {}
+    }
+  }
+ ]
+}
